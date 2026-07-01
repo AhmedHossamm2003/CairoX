@@ -59,8 +59,6 @@ export default async function handler(request, response) {
   }
 
   const data = request.body || {};
-  const replyTo = clean(data.email);
-
   const resendResponse = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -70,7 +68,6 @@ export default async function handler(request, response) {
     body: JSON.stringify({
       from: notificationFrom,
       to: [notificationTo],
-      reply_to: replyTo === "Not provided" ? undefined : replyTo,
       subject: `New CairoX inquiry from ${clean(data.name)}`,
       text: buildText(data),
       html: buildHtml(data),
@@ -80,6 +77,11 @@ export default async function handler(request, response) {
   const result = await resendResponse.json().catch(() => ({}));
 
   if (!resendResponse.ok) {
+    console.error("Resend email API failed", {
+      status: resendResponse.status,
+      result,
+    });
+
     return response.status(502).json({
       error: "Email API request failed",
       details: result,
