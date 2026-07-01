@@ -29,17 +29,10 @@ const budgetRanges = [
   "Let's discuss",
 ];
 
-const encode = (data: Record<string, string>): string =>
-  Object.keys(data)
-    .map(
-      (k) => `${encodeURIComponent(k)}=${encodeURIComponent(data[k] ?? "")}`,
-    )
-    .join("&");
-
 const sendLeadNotification = async (
   payload: Record<string, string>,
 ): Promise<void> => {
-  const response = await fetch("/.netlify/functions/send-lead-email", {
+  const response = await fetch("/api/send-lead-email", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
@@ -68,18 +61,7 @@ const Contact = () => {
     setError(null);
 
     try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode(payload),
-      });
-
-      try {
-        await sendLeadNotification(payload);
-      } catch (notificationError) {
-        console.warn(notificationError);
-      }
-
+      await sendLeadNotification(payload);
       setSubmitted(true);
       form.reset();
     } catch {
