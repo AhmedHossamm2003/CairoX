@@ -173,6 +173,105 @@ const deliverables = [
   },
 ];
 
+const MobileBuildCards = () => (
+  <div className="mt-9 sm:hidden">
+    <div className="relative overflow-hidden rounded-2xl border border-brand-border bg-brand-panel/55 p-4 shadow-panel">
+      <div className="absolute inset-y-6 left-[31px] w-px bg-gradient-to-b from-brand-red via-brand-border to-transparent" />
+      <div className="absolute -right-24 top-6 h-56 w-56 rounded-full bg-brand-red/15 blur-3xl" />
+      <div className="relative space-y-4">
+        {buildItems.map(({ icon: Icon, title, label, body }, index) => (
+          <div key={title} className="grid grid-cols-[36px_1fr] gap-3">
+            <span className="relative z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-red/40 bg-brand-bg text-brand-red shadow-red-glow-sm">
+              <Icon size={17} strokeWidth={1.7} />
+            </span>
+            <div className="border-b border-brand-border/70 pb-4 last:border-b-0 last:pb-0">
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-brand-red">
+                  {label}
+                </p>
+                <span className="font-mono text-[10px] tracking-[0.18em] text-brand-muted">
+                  0{index + 1}
+                </span>
+              </div>
+              <h3 className="mt-1 font-display text-lg font-bold text-white">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-brand-muted">{body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+const mobileWorkItems = [
+  {
+    title: "Clasrio",
+    body: "Smart educational SaaS platform for learning journeys and instructor workflows.",
+    accent: "#31579f",
+    image:
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=520&q=80",
+    alt: "Students collaborating around a laptop",
+  },
+  {
+    title: "Dentamize",
+    body: "Dental clinic management SaaS for reception, visits, payments, and reports.",
+    accent: "#16a9e6",
+    image: "/assets/dentamize-landing-gaioa.png",
+    alt: "Dentamize clinic landing page",
+  },
+  {
+    title: "Gawahergy",
+    body: "Jewelry store management system for inventory, pricing, sales, and branches.",
+    accent: "#e8c845",
+    image: "/assets/gawahergy-landing.png",
+    alt: "Gawahergy luxury gold store landing page",
+  },
+  {
+    title: "Idea Wellness",
+    body: "Fitness center management platform for members, attendance, packages, and finance.",
+    accent: "#ff6a13",
+    image:
+      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=520&q=85",
+    alt: "Premium gym interior",
+  },
+];
+
+const MobileWorkList = () => (
+  <div className="mt-9 grid gap-3 sm:hidden">
+    {mobileWorkItems.map((item) => (
+      <div key={item.title} className="relative grid grid-cols-[92px_1fr] overflow-hidden rounded-2xl border border-brand-border bg-brand-panel/70 shadow-panel">
+        <div className="relative min-h-[122px] overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.alt}
+            loading="lazy"
+            referrerPolicy="no-referrer"
+            className="h-full w-full object-cover object-top"
+          />
+          <div className="absolute inset-0 opacity-40 mix-blend-multiply" style={{ backgroundColor: item.accent }} />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-brand-panel" />
+        </div>
+        <div className="relative p-4">
+          <div
+            className="absolute -right-16 -top-16 h-32 w-32 rounded-full blur-3xl"
+            style={{ backgroundColor: `${item.accent}33` }}
+          />
+          <div className="relative min-w-0">
+            <span
+              className="inline-flex rounded-full border border-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em]"
+              style={{ color: item.accent }}
+            >
+              Selected work
+            </span>
+            <h3 className="mt-3 font-display text-xl font-bold text-white">{item.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-brand-muted">{item.body}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+);
+
 const MarqueeBand = () => {
   const items = capabilityTicker.map((item) => (
     <span
@@ -225,7 +324,7 @@ const CinematicXHero = () => {
 
   return (
     <div
-      className={`cinematic-x-scene relative mx-auto h-[410px] w-full max-w-[640px] select-none sm:h-[540px] lg:mx-0 lg:max-w-[680px] ${
+      className={`cinematic-x-scene relative mx-auto mt-9 h-[330px] w-full max-w-[390px] select-none sm:mt-0 sm:h-[540px] sm:max-w-[640px] lg:mx-0 lg:max-w-[680px] ${
         activated ? "cinematic-x-activated" : ""
       }`}
       style={style}
@@ -237,15 +336,15 @@ const CinematicXHero = () => {
       onKeyDown={onKeyDown}
     >
       <div className="cinematic-x-cursor-light pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300" />
-      <div className="absolute inset-0 rounded-full bg-brand-red/[0.055] blur-[120px]" />
-      <div className="absolute left-1/2 top-[45%] h-[86%] w-[86%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand-red/[0.08] bg-brand-red/[0.008]" />
+      <div className="absolute inset-0 rounded-full bg-brand-red/[0.11] blur-[90px] sm:bg-brand-red/[0.055] sm:blur-[120px]" />
+      <div className="absolute left-1/2 top-[45%] h-[86%] w-[86%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand-red/[0.16] bg-brand-red/[0.025] sm:border-brand-red/[0.08] sm:bg-brand-red/[0.008]" />
       <div className="absolute left-1/2 top-[45%] h-[66%] w-[66%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.035]" />
 
-      <div className="cinematic-x-orbit absolute left-1/2 top-[45%] h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.045] sm:h-[470px] sm:w-[470px]">
+      <div className="cinematic-x-orbit absolute left-1/2 top-[45%] h-[270px] w-[270px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand-red/[0.10] sm:h-[470px] sm:w-[470px] sm:border-white/[0.045]">
         <span className="absolute -top-1 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-brand-red shadow-red-glow-sm" />
       </div>
 
-      <div className="cinematic-x-object absolute left-1/2 top-[45%] h-[310px] w-[310px] -translate-x-1/2 -translate-y-1/2 sm:h-[430px] sm:w-[430px]">
+      <div className="cinematic-x-object absolute left-1/2 top-[45%] h-[245px] w-[245px] -translate-x-1/2 -translate-y-1/2 sm:h-[430px] sm:w-[430px]">
         <svg
           className="cinematic-x-mark absolute inset-0 h-full w-full"
           viewBox="0 0 400 400"
@@ -255,10 +354,10 @@ const CinematicXHero = () => {
           <defs>
             <linearGradient id="xGlass" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stopColor="#ffffff" stopOpacity="0.24" />
-              <stop offset="20%" stopColor="#3a3a44" stopOpacity="0.62" />
-              <stop offset="48%" stopColor="#09090c" stopOpacity="0.48" />
-              <stop offset="76%" stopColor="#272733" stopOpacity="0.58" />
-              <stop offset="100%" stopColor="#ffffff" stopOpacity="0.16" />
+              <stop offset="20%" stopColor="#e11d2a" stopOpacity="0.72" />
+              <stop offset="48%" stopColor="#3d080d" stopOpacity="0.68" />
+              <stop offset="76%" stopColor="#b0121c" stopOpacity="0.64" />
+              <stop offset="100%" stopColor="#ff7a84" stopOpacity="0.22" />
             </linearGradient>
             <linearGradient id="xRedEdge" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#ff6872" stopOpacity="0.88" />
@@ -276,7 +375,7 @@ const CinematicXHero = () => {
             </filter>
           </defs>
 
-          <circle cx="200" cy="200" r="118" fill="url(#xCore)" />
+          <circle cx="200" cy="200" r="118" fill="url(#xCore)" opacity="1" />
           <g filter="url(#xSoftShadow)">
             <g transform="rotate(42 200 200)">
               <rect x="171" y="34" width="58" height="332" rx="29" fill="url(#xGlass)" />
@@ -291,7 +390,7 @@ const CinematicXHero = () => {
               <path d="M184 56 V172" stroke="white" strokeWidth="3" strokeLinecap="round" opacity="0.20" />
             </g>
           </g>
-          <circle cx="200" cy="200" r="42" fill="#e11d2a" opacity="0.08" />
+          <circle cx="200" cy="200" r="42" fill="#e11d2a" opacity="0.16" />
         </svg>
         <div className="absolute inset-[30%] rounded-full bg-brand-red/[0.055] blur-3xl" />
         <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-red/[0.065] blur-2xl sm:h-32 sm:w-32" />
@@ -302,7 +401,7 @@ const CinematicXHero = () => {
       <div className="absolute bottom-16 left-1/2 h-px w-[76%] -translate-x-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="absolute bottom-10 left-1/2 h-8 w-[48%] -translate-x-1/2 rounded-[50%] bg-black/24 blur-2xl" />
 
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-full border border-brand-border bg-brand-bg/65 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.22em] text-brand-muted backdrop-blur">
+      <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-brand-red/20 bg-brand-bg/75 px-3 py-2 text-[9px] font-medium uppercase tracking-[0.18em] text-brand-muted backdrop-blur sm:bottom-4 sm:gap-3 sm:px-4 sm:text-[10px] sm:tracking-[0.22em]">
         <span className="h-1.5 w-1.5 rounded-full bg-brand-red" />
         {activated ? "Beyond limits" : "CairoX systems studio"}
       </div>
@@ -1184,7 +1283,7 @@ const IdeaWellnessProjectBrowser = () => {
 const Home = () => {
   return (
     <div className="overflow-x-hidden">
-      <section className="relative isolate flex min-h-[82vh] items-center overflow-hidden border-b border-brand-border">
+      <section className="relative isolate flex min-h-[auto] items-center overflow-hidden border-b border-brand-border sm:min-h-[82vh]">
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <div
             className="absolute inset-0"
@@ -1199,7 +1298,7 @@ const Home = () => {
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-brand-bg" />
         </div>
 
-        <div className="relative w-full pb-20 pt-28 sm:pb-24 sm:pt-32 lg:pb-28 lg:pt-36">
+        <div className="relative w-full pb-14 pt-24 sm:pb-24 sm:pt-32 lg:pb-28 lg:pt-36">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-[0.94fr_1.06fr] lg:gap-16">
               <div className="text-center lg:text-left">
@@ -1214,7 +1313,7 @@ const Home = () => {
                 </Reveal>
 
                 <Reveal delay={80}>
-                  <h1 className="mt-7 font-display text-[clamp(2.65rem,6vw,5.8rem)] font-bold leading-[0.96] tracking-tight text-white sm:mt-9">
+                  <h1 className="mt-6 font-display text-[clamp(2.35rem,12vw,3.35rem)] font-bold leading-[0.98] tracking-tight text-white sm:mt-9 sm:text-[clamp(2.65rem,6vw,5.8rem)]">
                     Digital products
                     <br className="hidden sm:block" /> with{" "}
                     <span
@@ -1240,7 +1339,7 @@ const Home = () => {
                 </Reveal>
 
                 <Reveal delay={200}>
-                  <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-brand-muted sm:text-base lg:mx-0">
+                  <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-brand-muted sm:mt-5 sm:text-base lg:mx-0">
                     CairoX creates premium web apps, mobile apps, AI workflows,
                     and business systems for teams that need software to feel
                     clear, fast, and built to last.
@@ -1248,7 +1347,7 @@ const Home = () => {
                 </Reveal>
 
                 <Reveal delay={280}>
-                  <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
+                  <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row lg:justify-start">
                     <Button as="link" to="/contact" size="lg" className="group/cta w-full sm:w-auto">
                       Start Your Project
                       <ArrowRight size={18} className="transition-transform duration-200 group-hover/cta:translate-x-0.5" />
@@ -1260,11 +1359,11 @@ const Home = () => {
                 </Reveal>
 
                 <Reveal delay={360}>
-                  <div className="mt-8 grid gap-3 sm:grid-cols-3 lg:max-w-xl">
+                  <div className="mt-6 grid gap-2 sm:mt-8 sm:grid-cols-3 sm:gap-3 lg:max-w-xl">
                     {heroProof.map((item) => (
                       <div
                         key={item}
-                        className="rounded-xl border border-brand-border bg-brand-panel/45 px-4 py-3 text-xs font-medium text-brand-text backdrop-blur-sm"
+                        className="rounded-lg border border-brand-border bg-brand-panel/45 px-3 py-2.5 text-xs font-medium text-brand-text backdrop-blur-sm sm:rounded-xl sm:px-4 sm:py-3"
                       >
                         {item}
                       </div>
@@ -1283,7 +1382,7 @@ const Home = () => {
 
       <MarqueeBand />
 
-      <section className="relative py-24 sm:py-32">
+      <section className="relative py-16 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
             <div>
@@ -1296,11 +1395,11 @@ const Home = () => {
               <WordReveal
                 as="h2"
                 text="Software that replaces friction with flow."
-                className="mt-4 font-display text-3xl font-bold leading-[1.05] tracking-tight text-white sm:text-4xl md:text-5xl"
+                className="mt-3 font-display text-2xl font-bold leading-[1.05] tracking-tight text-white sm:mt-4 sm:text-4xl md:text-5xl"
               />
             </div>
             <Reveal delay={100}>
-              <p className="max-w-2xl text-base leading-relaxed text-brand-muted sm:text-lg lg:justify-self-end">
+              <p className="max-w-2xl text-sm leading-relaxed text-brand-muted sm:text-lg lg:justify-self-end">
                 We focus on the product surfaces clients actually need: systems
                 that organize work, mobile experiences users keep, AI that saves
                 time, and stores that sell.
@@ -1309,12 +1408,15 @@ const Home = () => {
           </div>
 
           <Reveal delay={160}>
-            <ServiceConsole />
+            <MobileBuildCards />
+            <div className="hidden sm:block">
+              <ServiceConsole />
+            </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="relative border-t border-brand-border py-24 sm:py-32">
+      <section className="relative border-t border-brand-border py-16 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
@@ -1327,7 +1429,7 @@ const Home = () => {
               <WordReveal
                 as="h2"
                 text="Proof through product work."
-                className="mt-4 font-display text-3xl font-bold leading-[1.05] tracking-tight text-white sm:text-4xl md:text-5xl"
+                className="mt-3 font-display text-2xl font-bold leading-[1.05] tracking-tight text-white sm:mt-4 sm:text-4xl md:text-5xl"
               />
             </div>
             <Reveal>
@@ -1341,25 +1443,27 @@ const Home = () => {
             </Reveal>
           </div>
 
-          <div className="mt-14">
+          <MobileWorkList />
+
+          <div className="mt-14 hidden sm:block">
             <Reveal>
               <ClasrioCaseStudyCard />
             </Reveal>
           </div>
 
-          <div className="mt-6">
+          <div className="mt-6 hidden sm:block">
             <Reveal>
               <DentamizeProjectBrowser />
             </Reveal>
           </div>
 
-          <div className="mt-6">
+          <div className="mt-6 hidden sm:block">
             <Reveal>
               <GawahergyProjectBrowser />
             </Reveal>
           </div>
 
-          <div className="mt-6">
+          <div className="mt-6 hidden sm:block">
             <Reveal>
               <IdeaWellnessProjectBrowser />
             </Reveal>
@@ -1367,8 +1471,8 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative border-t border-brand-border py-24 sm:py-32">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
+      <section className="relative border-t border-brand-border py-16 sm:py-32">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:gap-12 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
           <div>
             <Reveal>
               <div className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.22em] text-brand-red">
@@ -1379,7 +1483,7 @@ const Home = () => {
             <WordReveal
               as="h2"
               text="Built like a product team, not a template shop."
-              className="mt-4 font-display text-3xl font-bold leading-[1.05] tracking-tight text-white sm:text-4xl md:text-5xl"
+              className="mt-3 font-display text-2xl font-bold leading-[1.05] tracking-tight text-white sm:mt-4 sm:text-4xl md:text-5xl"
             />
             <Reveal delay={100}>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-brand-muted">
@@ -1396,7 +1500,7 @@ const Home = () => {
         <HorizontalProcess steps={processSteps} />
       </section>
 
-      <section className="relative overflow-hidden border-t border-brand-border py-24 sm:py-32">
+      <section className="relative overflow-hidden border-t border-brand-border py-16 sm:py-32">
         <div className="absolute -right-40 top-0 h-[420px] w-[420px] rounded-full bg-brand-red/10 blur-3xl" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
@@ -1410,7 +1514,7 @@ const Home = () => {
               <WordReveal
                 as="h2"
                 text="A clearer build from first call to launch."
-                className="mt-4 font-display text-3xl font-bold leading-[1.05] tracking-tight text-white sm:text-4xl md:text-5xl"
+                className="mt-3 font-display text-2xl font-bold leading-[1.05] tracking-tight text-white sm:mt-4 sm:text-4xl md:text-5xl"
               />
               <Reveal delay={100}>
                 <p className="mt-5 max-w-xl text-base leading-relaxed text-brand-muted">
@@ -1419,10 +1523,10 @@ const Home = () => {
                 </p>
               </Reveal>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
               {deliverables.map(({ icon: Icon, title, body }, index) => (
                 <Reveal key={title} delay={index * 70}>
-                  <div className="rounded-2xl border border-brand-border bg-brand-panel/70 p-6 shadow-panel transition-colors hover:border-brand-red/50">
+                  <div className="rounded-xl border border-brand-border bg-brand-panel/70 p-4 shadow-panel transition-colors hover:border-brand-red/50 sm:rounded-2xl sm:p-6">
                     <Icon size={22} className="text-brand-red" strokeWidth={1.7} />
                     <h3 className="mt-5 font-display text-xl font-bold tracking-tight text-white">
                       {title}
@@ -1438,7 +1542,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-t border-brand-border py-28 sm:py-36">
+      <section className="relative overflow-hidden border-t border-brand-border py-20 sm:py-36">
         <div className="absolute inset-0 -z-10">
           <div
             className="absolute inset-0"
@@ -1455,7 +1559,7 @@ const Home = () => {
           <WordReveal
             as="h2"
             text="Have a product idea? Let's turn it into a working system."
-            className="font-display text-[clamp(2.25rem,6vw,4.5rem)] font-bold leading-[1.02] tracking-tight text-white"
+            className="font-display text-[clamp(2rem,10vw,3rem)] font-bold leading-[1.04] tracking-tight text-white sm:text-[clamp(2.25rem,6vw,4.5rem)]"
           />
           <Reveal delay={150}>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-brand-muted sm:text-lg">

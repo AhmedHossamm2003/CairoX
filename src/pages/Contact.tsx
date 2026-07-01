@@ -75,7 +75,7 @@ const Contact = () => {
 
   return (
     <div>
-      <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-20">
+      <section className="relative overflow-hidden pb-12 pt-24 sm:pb-20 sm:pt-40">
         <div className="absolute inset-0 bg-grid-dark bg-grid-32 [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)] opacity-60" />
         <div className="absolute inset-0 bg-radial-red" />
 
@@ -88,15 +88,15 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="relative pb-24 sm:pb-32">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:px-8 lg:grid-cols-3">
+      <section className="relative pb-16 sm:pb-32">
+        <div className="mx-auto grid max-w-7xl gap-5 px-4 sm:gap-8 sm:px-6 lg:grid-cols-3 lg:px-8">
           {/* Left: Contact channels */}
-          <aside className="space-y-4 lg:col-span-1">
+          <aside className="space-y-3 lg:col-span-1 lg:space-y-4">
             <a
               href={whatsappUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-start gap-4 rounded-xl border border-brand-border bg-brand-panel/70 p-5 transition-colors hover:border-brand-red/60"
+              className="group flex items-start gap-3 rounded-xl border border-brand-border bg-brand-panel/70 p-4 transition-colors hover:border-brand-red/60 sm:gap-4 sm:p-5"
             >
               <span className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-brand-border bg-brand-bg text-brand-red">
                 <MessageCircle size={18} />
@@ -116,7 +116,7 @@ const Contact = () => {
 
             <a
               href={mailtoUrl("Project inquiry — CairoX")}
-              className="group flex items-start gap-4 rounded-xl border border-brand-border bg-brand-panel/70 p-5 transition-colors hover:border-brand-red/60"
+              className="group flex items-start gap-3 rounded-xl border border-brand-border bg-brand-panel/70 p-4 transition-colors hover:border-brand-red/60 sm:gap-4 sm:p-5"
             >
               <span className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-brand-border bg-brand-bg text-brand-red">
                 <Mail size={18} />
@@ -134,7 +134,7 @@ const Contact = () => {
               </div>
             </a>
 
-            <div className="flex items-start gap-4 rounded-xl border border-brand-border bg-brand-panel/70 p-5">
+            <div className="flex items-start gap-3 rounded-xl border border-brand-border bg-brand-panel/70 p-4 sm:gap-4 sm:p-5">
               <span className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-brand-border bg-brand-bg text-brand-red">
                 <MapPin size={18} />
               </span>
@@ -154,15 +154,15 @@ const Contact = () => {
 
           {/* Right: Form */}
           <div className="lg:col-span-2">
-            <div className="relative overflow-hidden rounded-2xl border border-brand-border bg-brand-panel/70 p-6 sm:p-9">
+            <div className="relative overflow-hidden rounded-xl border border-brand-border bg-brand-panel/70 p-4 sm:rounded-2xl sm:p-9">
               <div className="absolute -top-32 right-0 h-64 w-64 rounded-full bg-brand-red/10 blur-3xl" />
 
               {submitted ? (
-                <div className="relative text-center py-10">
+                <div className="relative py-8 text-center sm:py-10">
                   <div className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-brand-red/40 bg-brand-red/10 text-brand-red">
                     <CheckCircle2 size={26} />
                   </div>
-                  <h3 className="mt-5 font-display text-2xl font-semibold text-white">
+                  <h3 className="mt-4 font-display text-xl font-semibold text-white sm:mt-5 sm:text-2xl">
                     Thanks — we'll be in touch.
                   </h3>
                   <p className="mt-3 text-brand-muted max-w-md mx-auto">

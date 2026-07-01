@@ -22,7 +22,7 @@ const SectionHeader = ({
     <div className={`max-w-3xl ${alignment} ${className}`}>
       {eyebrow ? (
         <div
-          className={`inline-flex items-center gap-2 mb-4 text-xs font-medium uppercase tracking-[0.18em] text-brand-red ${
+          className={`mb-3 inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.16em] text-brand-red sm:mb-4 sm:text-xs sm:tracking-[0.18em] ${
             align === "center" ? "" : ""
           }`}
         >
@@ -30,11 +30,11 @@ const SectionHeader = ({
           {eyebrow}
         </div>
       ) : null}
-      <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-[1.1]">
+      <h2 className="font-display text-[2rem] font-bold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl">
         {title}
       </h2>
       {description ? (
-        <p className="mt-4 text-base sm:text-lg text-brand-muted leading-relaxed">
+        <p className="mt-3 text-sm leading-relaxed text-brand-muted sm:mt-4 sm:text-lg">
           {description}
         </p>
       ) : null}

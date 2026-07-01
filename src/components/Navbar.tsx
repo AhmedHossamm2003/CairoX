@@ -40,10 +40,10 @@ const Navbar = () => {
 
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4 lg:pt-5"
+      className="fixed inset-x-0 top-0 z-50 px-2.5 pt-2.5 sm:px-4 sm:pt-3 lg:pt-5"
     >
       <div
-        className={`relative mx-auto flex h-16 max-w-7xl items-center justify-between overflow-hidden rounded-2xl border px-4 transition-all duration-300 sm:px-5 md:h-[76px] lg:h-[88px] lg:rounded-[1.35rem] lg:px-8 ${
+        className={`relative mx-auto flex h-14 max-w-7xl items-center justify-between overflow-hidden rounded-xl border px-3 transition-all duration-300 sm:h-16 sm:rounded-2xl sm:px-5 md:h-[76px] lg:h-[88px] lg:rounded-[1.35rem] lg:px-8 ${
           scrolled || open
             ? "border-brand-border bg-brand-bg/86 shadow-[0_18px_70px_-34px_rgba(0,0,0,0.9)] backdrop-blur-xl"
             : "border-white/[0.08] bg-brand-bg/42 shadow-[0_16px_60px_-42px_rgba(225,29,42,0.45)] backdrop-blur-md"
@@ -59,8 +59,8 @@ const Navbar = () => {
         >
           <div className="relative">
             <div className="absolute inset-0 rounded-xl bg-brand-red/25 blur-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            <div className="rounded-xl border border-white/[0.07] bg-white/[0.035] p-1.5 lg:rounded-2xl lg:p-2">
-              <Logo size={32} className="lg:!h-11" />
+            <div className="rounded-lg border border-white/[0.07] bg-white/[0.035] p-1 sm:rounded-xl sm:p-1.5 lg:rounded-2xl lg:p-2">
+              <Logo size={28} className="sm:!h-8 lg:!h-11" />
             </div>
           </div>
           <span className="hidden h-8 w-px bg-gradient-to-b from-transparent via-brand-border to-transparent sm:block lg:h-11" />
@@ -116,7 +116,7 @@ const Navbar = () => {
           type="button"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-brand-border bg-brand-panel/70 text-white transition-colors hover:border-brand-red/60 md:hidden"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-brand-border bg-brand-panel/70 text-white transition-colors hover:border-brand-red/60 sm:h-10 sm:w-10 sm:rounded-xl md:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X size={20} /> : <Menu size={20} />}
@@ -129,14 +129,14 @@ const Navbar = () => {
           open ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="mx-auto mt-2 max-w-7xl rounded-2xl border border-brand-border bg-brand-bg/95 p-2 shadow-panel backdrop-blur-xl">
+        <div className="mx-auto mt-2 max-w-7xl rounded-xl border border-brand-border bg-brand-bg/95 p-1.5 shadow-panel backdrop-blur-xl sm:rounded-2xl sm:p-2">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               end={item.to === "/"}
               className={({ isActive }) =>
-                `block rounded-xl px-4 py-3 text-base font-medium transition-colors ${
+                `block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors sm:rounded-xl sm:px-4 sm:py-3 sm:text-base ${
                   isActive
                     ? "bg-brand-red/10 text-white"
                     : "text-brand-muted hover:bg-white/5 hover:text-white"
@@ -146,7 +146,7 @@ const Navbar = () => {
               {item.label}
             </NavLink>
           ))}
-          <div className="px-2 pb-2 pt-3">
+          <div className="px-1.5 pb-1.5 pt-2 sm:px-2 sm:pb-2 sm:pt-3">
             <Button as="link" to="/contact" size="md" className="w-full">
               Start a Project
               <ArrowUpRight size={16} />

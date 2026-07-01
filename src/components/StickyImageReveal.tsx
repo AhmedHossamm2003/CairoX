@@ -15,14 +15,14 @@ type StickyImageRevealProps = {
 
 const StickyImageReveal = ({ panels }: StickyImageRevealProps) => {
   return (
-    <div className="grid gap-5 md:grid-cols-2">
+    <div className="grid gap-3 sm:gap-5 md:grid-cols-2">
       {panels.map((panel, index) => {
         const Icon = panel.icon;
 
         return (
           <article
             key={panel.id}
-            className="group relative isolate overflow-hidden rounded-2xl border border-brand-border bg-brand-panel/70 p-6 shadow-panel transition-colors duration-300 hover:border-brand-red/50 sm:p-8"
+            className="group relative isolate overflow-hidden rounded-xl border border-brand-border bg-brand-panel/70 p-4 shadow-panel transition-colors duration-300 hover:border-brand-red/50 sm:rounded-2xl sm:p-8"
           >
             <div className="absolute inset-0 bg-grid-dark bg-grid-32 opacity-15 [mask-image:radial-gradient(ellipse_at_top_left,black_20%,transparent_70%)]" />
             <div
@@ -35,21 +35,21 @@ const StickyImageReveal = ({ panels }: StickyImageRevealProps) => {
 
             <div className="relative">
               <div className="flex items-start justify-between gap-4">
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl border border-brand-red/35 bg-brand-red/10 text-brand-red shadow-red-glow-sm">
-                  <Icon size={24} strokeWidth={1.6} />
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-brand-red/35 bg-brand-red/10 text-brand-red shadow-red-glow-sm sm:h-14 sm:w-14 sm:rounded-xl">
+                  <Icon size={20} strokeWidth={1.6} className="sm:size-6" />
                 </div>
-                <span className="font-mono text-xs tracking-[0.22em] text-brand-red">
+                <span className="font-mono text-[11px] tracking-[0.18em] text-brand-red sm:text-xs sm:tracking-[0.22em]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
               </div>
 
-              <span className="mt-8 block text-xs font-medium uppercase tracking-[0.22em] text-brand-red">
+              <span className="mt-5 block text-[10px] font-medium uppercase tracking-[0.18em] text-brand-red sm:mt-8 sm:text-xs sm:tracking-[0.22em]">
                 {panel.eyebrow}
               </span>
-              <h3 className="mt-3 font-display text-2xl font-bold tracking-tight text-white leading-tight sm:text-3xl">
+              <h3 className="mt-2 font-display text-xl font-bold leading-tight tracking-tight text-white sm:mt-3 sm:text-3xl">
                 {panel.title}
               </h3>
-              <p className="mt-4 max-w-xl text-sm leading-relaxed text-brand-muted sm:text-base">
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-brand-muted sm:mt-4 sm:text-base">
                 {panel.body}
               </p>
             </div>
