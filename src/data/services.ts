@@ -6,6 +6,7 @@ import {
   Sparkles,
   ShoppingBag,
   LayoutTemplate,
+  Users,
 } from "lucide-react";
 
 export type Service = {
@@ -66,6 +67,22 @@ export const services: Service[] = [
       "Finance systems",
       "POS integrations",
       "Operations dashboards",
+    ],
+  },
+  {
+    slug: "crm-systems",
+    title: "CRM Systems",
+    icon: Users,
+    shortDescription:
+      "Custom CRMs that track every lead, client, deal, and follow-up so your sales and support teams never drop the ball.",
+    longDescription:
+      "Off-the-shelf CRMs force your team into someone else's process. We build CRMs around how you actually sell and serve - lead capture, pipelines, client profiles, tasks, support channels, and reports - with the roles and automations your team needs.",
+    whatWeBuild: [
+      "Lead and pipeline management",
+      "Client profiles and history",
+      "Follow-ups, tasks, and reminders",
+      "Support tickets and channels",
+      "Sales reports and dashboards",
     ],
   },
   {

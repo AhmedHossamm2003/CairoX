@@ -106,7 +106,7 @@ const ProjectDetail = () => {
           )}
 
           {gallery.length > 1 && (
-            <div className="grid gap-5 md:grid-cols-2">
+            <div className="grid items-start gap-5 md:grid-cols-2">
               {gallery.map((shot) => (
                 <div
                   key={shot.src}
@@ -117,7 +117,7 @@ const ProjectDetail = () => {
                     alt={shot.alt}
                     loading="lazy"
                     referrerPolicy="no-referrer"
-                    className="h-56 w-full rounded-xl object-cover object-top sm:h-72"
+                    className="h-auto w-full rounded-xl"
                   />
                   <p className="px-2 pt-3 text-xs font-medium uppercase tracking-[0.18em] text-brand-muted">
                     {shot.label}

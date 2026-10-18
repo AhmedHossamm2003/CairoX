@@ -18,6 +18,7 @@ const serviceSignals = [
   ["Product strategy", "User flows", "Design system"],
   ["App UX", "Push flows", "Offline states"],
   ["Roles", "Reports", "Integrations"],
+  ["Pipelines", "Follow-ups", "Client history"],
   ["Prompts", "Knowledge base", "Automation"],
   ["Catalog", "Checkout", "Retention"],
   ["Copy", "Creative", "Conversion"],

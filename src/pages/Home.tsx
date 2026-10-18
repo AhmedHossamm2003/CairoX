@@ -36,6 +36,7 @@ const capabilityTicker = [
   "Mobile Apps",
   "AI Automation",
   "Business Systems",
+  "CRM Systems",
   "E-commerce",
   "Landing Pages",
 ];
