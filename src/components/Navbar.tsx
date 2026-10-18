@@ -116,37 +116,76 @@ const Navbar = () => {
           type="button"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-brand-border bg-brand-panel/70 text-white transition-colors hover:border-brand-red/60 sm:h-10 sm:w-10 sm:rounded-xl md:hidden"
+          className={`relative inline-flex h-9 w-9 items-center justify-center rounded-lg border text-white transition-all duration-300 sm:h-10 sm:w-10 sm:rounded-xl md:hidden ${
+            open
+              ? "border-brand-red/60 bg-brand-red/15 shadow-red-glow-sm"
+              : "border-brand-border bg-brand-panel/70 hover:border-brand-red/60"
+          }`}
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X size={20} /> : <Menu size={20} />}
+          <Menu
+            size={20}
+            className={`absolute transition-all duration-300 ${
+              open ? "rotate-90 scale-75 opacity-0" : "rotate-0 scale-100 opacity-100"
+            }`}
+          />
+          <X
+            size={20}
+            className={`absolute transition-all duration-300 ${
+              open ? "rotate-0 scale-100 opacity-100" : "-rotate-90 scale-75 opacity-0"
+            }`}
+          />
         </button>
       </div>
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${
-          open ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
+        className={`pointer-events-none md:hidden overflow-hidden transition-[max-height] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          open ? "max-h-[80vh]" : "max-h-0"
         }`}
       >
-        <div className="mx-auto mt-2 max-w-7xl rounded-xl border border-brand-border bg-brand-bg/95 p-1.5 shadow-panel backdrop-blur-xl sm:rounded-2xl sm:p-2">
-          {navItems.map((item) => (
+        <div
+          className={`pointer-events-auto mx-auto mt-2 max-w-7xl origin-top overflow-hidden rounded-xl border border-brand-border bg-brand-bg/95 p-1.5 shadow-[0_24px_80px_-36px_rgba(0,0,0,0.95)] backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:rounded-2xl sm:p-2 ${
+            open
+              ? "translate-y-0 scale-100 opacity-100"
+              : "-translate-y-3 scale-[0.985] opacity-0"
+          }`}
+        >
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.045] via-transparent to-brand-red/[0.035]" />
+          <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-brand-red/60 to-transparent" />
+
+          {navItems.map((item, index) => (
             <NavLink
               key={item.to}
               to={item.to}
               end={item.to === "/"}
               className={({ isActive }) =>
-                `block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors sm:rounded-xl sm:px-4 sm:py-3 sm:text-base ${
+                `relative block rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-300 sm:rounded-xl sm:px-4 sm:py-3 sm:text-base ${
                   isActive
                     ? "bg-brand-red/10 text-white"
                     : "text-brand-muted hover:bg-white/5 hover:text-white"
-                }`
+                } ${open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"}`
               }
+              style={{ transitionDelay: open ? `${90 + index * 45}ms` : "0ms" }}
             >
-              {item.label}
+              {({ isActive }) => (
+                <span className="flex items-center justify-between gap-3">
+                  <span>{item.label}</span>
+                  <span
+                    className={`h-1.5 w-1.5 rounded-full bg-brand-red transition-opacity duration-300 ${
+                      isActive ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+                </span>
+              )}
             </NavLink>
           ))}
-          <div className="px-1.5 pb-1.5 pt-2 sm:px-2 sm:pb-2 sm:pt-3">
+          <div
+            className={`px-1.5 pb-1.5 pt-2 transition-all duration-300 sm:px-2 sm:pb-2 sm:pt-3 ${
+              open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
+            }`}
+            style={{ transitionDelay: open ? `${120 + navItems.length * 45}ms` : "0ms" }}
+          >
             <Button as="link" to="/contact" size="md" className="w-full">
               Start a Project
               <ArrowUpRight size={16} />

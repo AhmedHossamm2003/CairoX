@@ -19,10 +19,61 @@ export type Project = {
   logo?: string;
   accentColor?: string;
   previewUrl?: string;
+  /** Short highlight label shown on cards, e.g. "Latest work" */
+  badge?: string;
   customLandingPage?: ComponentType;
 };
 
 export const projects: Project[] = [
+  {
+    slug: "domiatec",
+    name: "Domiatec Agri-Group",
+    category: "Agri-Business Operations Platform",
+    shortDescription:
+      "An operations platform for one of Egypt's leading potato suppliers, connecting client orders, export shipment tracking, admin control, and executive reports.",
+    overview:
+      "Domiatec Agri-Group has been growing since 1973 and is one of the leading companies supplying potatoes to the biggest food producers. We built a connected platform that gives clients a self-service ordering portal, follows every export shipment on a live route map and timeline, gives administrators full control over users, registrations, payment proofs and support channels, and gives management a real-time view of sales, cash, receivables, and inventory.",
+    features: [
+      "Client portal for new orders, order tracking, documents, and support",
+      "Live shipment tracking with route map and milestone timeline",
+      "Executive dashboard for sales, cash, receivables, and alerts",
+      "Admin control for registrations, payment proofs, users, and channels",
+      "Operations, inventory, and audit workflows across teams",
+    ],
+    technologies: ["React", "TypeScript", "Maps", "Reports", "Role-based Access"],
+    image: "/assets/domiatec-hq.webp",
+    imageAlt: "Domiatec Agri-Group headquarters building",
+    gallery: [
+      {
+        src: "/assets/domiatec-hq.webp",
+        alt: "Domiatec Agri-Group app welcome screen",
+        label: "Welcome",
+      },
+      {
+        src: "/assets/domiatec-tracking.png",
+        alt: "Domiatec live shipment tracking map and timeline",
+        label: "Live shipment tracking",
+      },
+      {
+        src: "/assets/domiatec-executive.png",
+        alt: "Domiatec executive sales and cash dashboard",
+        label: "Executive reports",
+      },
+      {
+        src: "/assets/domiatec-client.png",
+        alt: "Domiatec client portal with active order progress",
+        label: "Client portal",
+      },
+      {
+        src: "/assets/domiatec-admin.png",
+        alt: "Domiatec admin dashboard",
+        label: "Admin dashboard",
+      },
+    ],
+    logo: "/assets/domiatec-logo.png",
+    accentColor: "#1f8a3b",
+    badge: "Latest work",
+  },
   {
     slug: "dentamize",
     name: "Dentamize",
@@ -60,6 +111,7 @@ export const projects: Project[] = [
     ],
     logo: "/assets/dentamize-logo.png",
     accentColor: "#16a9e6",
+    previewUrl: "https://dentamize.com/",
   },
   {
     slug: "clasrio",
@@ -285,6 +337,7 @@ export const projects: Project[] = [
     ],
     logo: "/assets/idea-wellness-logo.png",
     accentColor: "#ff6a13",
+    previewUrl: "https://idea-egy.com/",
   },
 ];
 

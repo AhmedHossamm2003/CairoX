@@ -203,7 +203,22 @@ const MobileBuildCards = () => (
   </div>
 );
 
-const mobileWorkItems = [
+const mobileWorkItems: Array<{
+  title: string;
+  body: string;
+  accent: string;
+  image: string;
+  alt: string;
+  badge?: string;
+}> = [
+  {
+    title: "Domiatec Agri-Group",
+    body: "Operations platform for a leading potato supplier: client orders, live shipment tracking, and executive reports.",
+    accent: "#1f8a3b",
+    image: "/assets/domiatec-hq.webp",
+    alt: "Domiatec Agri-Group headquarters",
+    badge: "Latest work",
+  },
   {
     title: "Clasrio",
     body: "Smart educational SaaS platform for learning journeys and instructor workflows.",
@@ -261,7 +276,7 @@ const MobileWorkList = () => (
               className="inline-flex rounded-full border border-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em]"
               style={{ color: item.accent }}
             >
-              Selected work
+              {item.badge ?? "Selected work"}
             </span>
             <h3 className="mt-3 font-display text-xl font-bold text-white">{item.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-brand-muted">{item.body}</p>
@@ -856,6 +871,159 @@ const ClasrioCaseStudyCard = () => {
   );
 };
 
+const DomiatecProjectBrowser = () => {
+  const features = [
+    "Client portal for new orders, order tracking, and documents",
+    "Live export shipment tracking with route map and timeline",
+    "Executive reports for sales, cash, receivables, and alerts",
+    "Admin control for registrations, payments, users, and channels",
+  ];
+
+  const shots = [
+    {
+      label: "Live shipment tracking",
+      src: "/assets/domiatec-tracking.png",
+      alt: "Domiatec live shipment tracking map and timeline",
+    },
+    {
+      label: "Executive reports",
+      src: "/assets/domiatec-executive.png",
+      alt: "Domiatec executive sales and cash dashboard",
+    },
+    {
+      label: "Client portal",
+      src: "/assets/domiatec-client.png",
+      alt: "Domiatec client portal with active order progress",
+    },
+  ];
+
+  return (
+    <Link
+      to="/projects/domiatec"
+      className="group relative block overflow-hidden rounded-[1.75rem] border border-[#2fa84f]/30 bg-[#06100b] shadow-panel transition-colors duration-300 hover:border-[#2fa84f]/75"
+    >
+      <div className="absolute inset-0 bg-grid-dark bg-grid-32 opacity-12 [mask-image:radial-gradient(ellipse_at_center,black_28%,transparent_72%)]" />
+      <div className="absolute -left-24 top-10 h-80 w-80 rounded-full bg-[#1f3f8a]/30 blur-3xl" />
+      <div className="absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-[#2fa84f]/16 blur-3xl" />
+
+      <div className="absolute left-6 top-5 z-10 sm:left-8 sm:top-6">
+        <span className="inline-flex items-center gap-2 rounded-full bg-brand-red px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white shadow-red-glow-sm">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
+          </span>
+          Latest work
+        </span>
+      </div>
+
+      <div className="relative grid gap-6 p-4 pt-16 sm:p-6 sm:pt-16 lg:grid-cols-[1fr_360px] lg:p-8 lg:pt-16">
+        <div className="min-w-0">
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0b1a3a] shadow-[0_24px_70px_-30px_rgba(0,0,0,0.92)] transition-transform duration-500 group-hover:-translate-y-1">
+            <div className="flex items-center gap-3 border-b border-white/10 bg-[#081430] px-4 py-3">
+              <div className="flex gap-1.5">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+              </div>
+              <div className="flex flex-1 items-center rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-medium text-slate-300">
+                Domiatec Agri-Group app
+              </div>
+              <span className="hidden rounded-full bg-[#2fa84f]/15 px-3 py-1 text-[11px] font-semibold text-[#7fe09a] sm:inline-flex">
+                Agri-business
+              </span>
+            </div>
+
+            <div className="relative">
+              <img
+                src="/assets/domiatec-hq.webp"
+                alt="Domiatec Agri-Group headquarters building"
+                className="aspect-[931/638] w-full object-cover"
+              />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0b1a3a] to-transparent" />
+            </div>
+          </div>
+
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            {shots.map((shot) => (
+              <div
+                key={shot.label}
+                className="overflow-hidden rounded-2xl border border-[#2fa84f]/20 bg-brand-panel/70 p-2 transition-colors duration-300 group-hover:border-[#2fa84f]/45"
+              >
+                <img
+                  src={shot.src}
+                  alt={shot.alt}
+                  className="h-24 w-full rounded-xl object-cover object-top"
+                />
+                <p className="px-1 pt-2 text-xs font-medium text-[#8fd9a5]">
+                  {shot.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <aside className="relative lg:-ml-16 lg:self-center">
+          <div className="rounded-2xl border border-[#2fa84f]/22 bg-brand-panel/92 p-6 shadow-[0_24px_80px_-30px_rgba(0,0,0,0.95)] backdrop-blur-xl sm:p-7">
+            <div className="mb-6 inline-flex rounded-2xl border border-white/10 bg-white p-2">
+              <img
+                src="/assets/domiatec-logo.png"
+                alt="Domiatec Agri-Group logo"
+                className="h-16 w-auto rounded-lg object-contain"
+              />
+            </div>
+
+            <span className="flex w-fit rounded-full border border-[#2fa84f]/40 bg-[#2fa84f]/10 px-3 py-1 text-xs font-medium text-[#8fd9a5]">
+              Agri-business operations platform
+            </span>
+
+            <h3 className="mt-5 font-display text-3xl font-bold tracking-tight text-white">
+              Domiatec Agri-Group
+            </h3>
+            <p className="mt-3 text-sm uppercase tracking-[0.18em] text-brand-muted">
+              From the farm to the biggest brands
+            </p>
+
+            <p className="mt-5 text-sm leading-relaxed text-brand-muted">
+              A connected platform for one of the leading companies supplying
+              potatoes to the biggest food producers, linking clients, export
+              shipments, operations teams, and management in one place.
+            </p>
+
+            <div className="mt-7 space-y-3">
+              {features.map((feature) => (
+                <div key={feature} className="flex items-start gap-2 text-sm text-brand-text">
+                  <Check
+                    size={15}
+                    className="mt-0.5 flex-shrink-0 text-[#4cc46d]"
+                    strokeWidth={2.4}
+                  />
+                  <span>{feature}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-2">
+              {["Client portal", "Live tracking", "Reports", "Admin", "Maps"].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-brand-border bg-brand-bg/70 px-3 py-1.5 text-xs font-medium text-brand-text"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors group-hover:text-[#8fd9a5]">
+              View case study
+              <ArrowUpRight size={16} />
+            </div>
+          </div>
+        </aside>
+      </div>
+    </Link>
+  );
+};
+
 const DentamizeProjectBrowser = () => {
   const features = [
     "Reception dashboard with queue and payments",
@@ -883,7 +1051,7 @@ const DentamizeProjectBrowser = () => {
                 <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
               </div>
               <div className="flex flex-1 items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-[11px] font-medium text-slate-500">
-                app.dentamize.com/dashboard
+                dentamize.com
               </div>
               <span className="hidden rounded-full bg-[#16a9e6]/10 px-3 py-1 text-[11px] font-semibold text-[#147fbd] sm:inline-flex">
                 Clinic SaaS
@@ -1169,7 +1337,7 @@ const IdeaWellnessProjectBrowser = () => {
                 <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
               </div>
               <div className="flex flex-1 items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-[11px] font-medium text-slate-500">
-                app.ideawellness.com/dashboard
+                idea-egy.com
               </div>
               <span className="hidden rounded-full bg-[#ff6a13]/10 px-3 py-1 text-[11px] font-semibold text-[#ff6a13] sm:inline-flex">
                 Fitness SaaS
@@ -1446,6 +1614,12 @@ const Home = () => {
           <MobileWorkList />
 
           <div className="mt-14 hidden sm:block">
+            <Reveal>
+              <DomiatecProjectBrowser />
+            </Reveal>
+          </div>
+
+          <div className="mt-6 hidden sm:block">
             <Reveal>
               <ClasrioCaseStudyCard />
             </Reveal>

@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { Project } from "../data/projects";
 
@@ -61,7 +61,13 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             className="absolute inset-0 opacity-55 mix-blend-multiply"
             style={{ backgroundColor: accent }}
           />
-          <div className="absolute left-3 top-3 sm:left-5 sm:top-5">
+          <div className="absolute left-3 top-3 flex flex-col items-start gap-2 sm:left-5 sm:top-5">
+            {project.badge && (
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-red px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white shadow-red-glow-sm sm:px-3 sm:text-[11px]">
+                <Sparkles size={12} />
+                {project.badge}
+              </span>
+            )}
             <span className="rounded-full border border-white/15 bg-brand-bg/65 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-white backdrop-blur-sm sm:px-3 sm:text-[11px] sm:tracking-[0.22em]">
               {project.category.split(" ").slice(0, 2).join(" ")}
             </span>

@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Sparkles } from "lucide-react";
 import Button from "../components/Button";
 import { getProjectBySlug } from "../data/projects";
 import NotFound from "./NotFound";
@@ -38,6 +38,12 @@ const ProjectDetail = () => {
           </Link>
 
           <div className="mt-8">
+            {project.badge && (
+              <span className="mb-4 flex w-fit items-center gap-1.5 rounded-full bg-brand-red px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
+                <Sparkles size={12} />
+                {project.badge}
+              </span>
+            )}
             <span className="text-xs font-medium uppercase tracking-[0.18em] text-brand-red">
               {project.category}
             </span>
