@@ -1453,7 +1453,6 @@ const Home = () => {
 
           <MobileWorkList />
 
-
           <div className="mt-14 hidden sm:block">
             <Reveal>
               <ClasrioCaseStudyCard />
