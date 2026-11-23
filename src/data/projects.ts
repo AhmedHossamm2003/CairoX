@@ -26,6 +26,45 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "crm",
+    name: "CRM",
+    category: "Customer Operations & CRM Platform",
+    shortDescription:
+      "A customer operations CRM for call centers and support teams, unifying call logging, ticketing, sales callbacks, installment collection, and live performance dashboards.",
+    overview:
+      "A customer relationship and operations platform built for high-volume support and collections teams. It brings call logging, department-based ticketing, sales callbacks, installment and payment tracking, client records, and real-time reporting into one dense, fast enterprise console.",
+    features: [
+      "Operations overview with live KPIs and call analytics",
+      "Department-based ticket board (new, in progress, resolved, closed)",
+      "Sales callback queue with confirmation and re-open flows",
+      "Installment collection and payment-promise tracking",
+      "Client records, reports, and per-agent performance",
+    ],
+    technologies: ["React", "TypeScript", "SaaS", "Dashboards", "Operations"],
+    image: "/assets/crm-overview.jpg",
+    imageAlt: "CRM operations overview dashboard",
+    gallery: [
+      {
+        src: "/assets/crm-overview.jpg",
+        alt: "CRM operations overview dashboard with live KPIs and charts",
+        label: "Operations overview",
+      },
+      {
+        src: "/assets/crm-tickets.jpg",
+        alt: "CRM ticket board grouped by status across departments",
+        label: "Ticket board",
+      },
+      {
+        src: "/assets/crm-callbacks.jpg",
+        alt: "CRM sales callbacks queue with confirmation actions",
+        label: "Sales callbacks",
+      },
+    ],
+    accentColor: "#0E7C72",
+    previewUrl: "/demos/meridian-crm.html",
+    badge: "Live demo",
+  },
+  {
     slug: "dentamize",
     name: "Dentamize",
     category: "Dental Clinic Management SaaS",
